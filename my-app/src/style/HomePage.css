@@ -1,0 +1,28 @@
+.HomePage {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    
+
+      }
+  
+  #products {
+    padding: 40px 20px;
+  }
+  
+  .product-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .product {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    text-align: left;
+  }
+  
+  
+
+ 
