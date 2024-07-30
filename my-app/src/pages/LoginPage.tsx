@@ -1,57 +1,53 @@
 import React, { useState } from 'react';
-import { Container, TextField, Button, Typography, Paper } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { TextField, Button, Grid } from '@mui/material';
+import '../style/LoginPage.css'; // Import the shared styles
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [error, setError] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !password) {
+      setError('Please fill in all fields');
+      return;
+    }
     // Handle login logic here
-    navigate('/'); // Redirect to home page after successful login
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <Paper elevation={3} style={{ padding: '20px' }}>
-        <Typography variant="h5" align="center">Login</Typography>
-        <form noValidate>
+    <div className="form-container">
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
           <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            label="Email Address"
-            autoComplete="email"
-            autoFocus
+            id="email"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
             fullWidth
-            label="Password"
+            variant="outlined"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <TextField
+            id="password"
             type="password"
-            autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button
-            type="button"
             fullWidth
-            variant="contained"
-            color="primary"
-            style={{ marginTop: '20px' }}
-            onClick={handleLogin}
-          >
-            Log In
-          </Button>
-        </form>
-      </Paper>
-    </Container>
+            variant="outlined"
+          />
+        </div>
+        {error && <div className="error-message">{error}</div>}
+        <Button type="submit" className="submit-button">
+          Login
+        </Button>
+      </form>
+    </div>
   );
 };
 

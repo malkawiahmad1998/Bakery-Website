@@ -53,6 +53,7 @@ const Header: React.FC = () => {
         <Link to="/ProductPage">Products</Link>
         <Link to="/CartPage">Cart</Link>
         <Link to="/ContactPage">Contact</Link>
+
       </Nav>
     </HeaderContainer>
   );

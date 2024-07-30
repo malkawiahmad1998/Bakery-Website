@@ -1,12 +1,64 @@
 /* styles.css */
 
-.MuiButton-containedPrimary {
-    background: linear-gradient(to right, #e1e10e 0%, #d2d23e 100%);
-    color: #000;
-  }
-  
-  .MuiButton-containedPrimary:hover {
-    background: #ffffff;
-    color: #000;
-  }
+/* shared-form-styles.css */
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to right, #e1e10e 0%, #d2d23e 100%);
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
   
