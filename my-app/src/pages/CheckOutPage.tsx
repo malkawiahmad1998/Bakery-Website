@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-
-import { Snackbar, Alert } from '@mui/material';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import { Snackbar } from '@mui/material';
 import '../style/CheckOut.css';
+
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const CheckoutPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -21,27 +25,27 @@ const CheckoutPage: React.FC = () => {
   };
   
 
-  const handlePlaceOrder = () => {
+  const handlePlaceOrder = (e: React.FormEvent) => {
+    e.preventDefault();
     if (!name || !address || (paymentMethod === 'visa' && !cardNumber)) {
       setAlertSeverity('error');
       setAlertMessage('Please fill in all required fields.');
       setOpen(true);
       return;
     }
-
     setAlertSeverity('success');
-    setAlertMessage('Order placed successfully!');
+    setAlertMessage('Your order has been placed successfully!');
     setOpen(true);
-    
-    // Clear form fields
-    setName('');
-    setAddress('');
-    setCardNumber('');
-    setPaymentMethod('cash');
+// Clear cart or any other action after successful order
+  // Delay navigation to home page
 
-    // Navigate to confirmation or any other page
-    // navigate('/confirmation');
+setTimeout(() => {
+  navigate('/');
+}, 2500); // 2 seconds
   };
+  
+  
+
 
   const handleClose = () => {
     setOpen(false);
@@ -99,7 +103,8 @@ const CheckoutPage: React.FC = () => {
         <div className='checkoutbtns '  style={{'display':'flex'}}>
                 <button className='placeorderBtn' onClick={handleBackToCart} >Back to Cart</button>
 
-        <button className="placeorderBtn" onClick={handlePlaceOrder}>
+        <button className="placeorderBtn" onClick={handlePlaceOrder
+        }>
 
           Place Order
         </button>

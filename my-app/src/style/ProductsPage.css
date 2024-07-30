@@ -85,3 +85,33 @@
 .conrolBtns{
   margin-bottom: 5px;
 }
+
+.go-to-cart-button {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  border-radius: -20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.go-to-cart-button:hover {
+color: rgb(255, 255, 255);
+transition: .3s;
+}
+
+.cart-icon-wrapper {
+  background-color: #d2d23e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 10px;
+  margin-right: 8px;
+  color: black;
+}
+
+.cart-icon-wrapper:hover{
+  color: white;
+  transition: .3s;
+}

@@ -8,6 +8,8 @@ import ProductPage from './pages/ProductPage';
 import Cart from './pages/CartPage';
 import { CartProvider } from './context/CartContext';
 import Checkout from './pages/CheckOutPage';
+import ContactPage from './pages/ContactPage';
+import LoginPage from './pages/LoginPage';
 
 const App: React.FC = () => {
   return (
@@ -28,6 +30,9 @@ const App: React.FC = () => {
         <Route path='/ProductPage' element={<ProductPage/>}/>
         <Route path='/CartPage' element={<Cart/>}/>
         <Route path='/CheckOutPage' element={<Checkout/>}/>
+        <Route path='/ContactPage' element={<ContactPage/>}/>
+        <Route path='/LoginPage' element={<LoginPage/>}/>
+
 
 
       </Routes>

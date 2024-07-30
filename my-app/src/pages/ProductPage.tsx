@@ -3,7 +3,18 @@ import '../style/ProductsPage.css';
 import { CartContext } from '../context/CartContext';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Snackbar, Alert } from '@mui/material';
+import { Snackbar } from '@mui/material';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import { Button } from '@mui/material';
+
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import IconButton from '@mui/material/IconButton';
+
+
+
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const ProductPage: React.FC = () => {
   const [quantities, setQuantities] = useState<Record<number, number>>({});
@@ -31,17 +42,15 @@ const ProductPage: React.FC = () => {
   ];
 
   const handleAddToCart = (product: { id: number; name: string; price: string; image: string }) => {
-    const quantity = quantities[product.id] || 0;
-
-    if (quantity > 0) {
-      addToCart({ ...product, quantity });
+    if (quantities[product.id] > 0) {
+      addToCart({ ...product, quantity: quantities[product.id] });
       setQuantities(prev => ({ ...prev, [product.id]: 0 }));
-      setAlertMessage(`${product.name} has been added to the cart with quantity ${quantity}`);
       setAlertSeverity('success');
+      setAlertMessage(`${product.name} has been added to the cart with quantity ${quantities[product.id]}`);
       setOpen(true);
     } else {
-      setAlertMessage('Please specify a quantity greater than zero.');
       setAlertSeverity('error');
+      setAlertMessage('Please select a quantity greater than zero.');
       setOpen(true);
     }
   };
@@ -64,6 +73,11 @@ const ProductPage: React.FC = () => {
   return (
     <div className="products-page">
     <h2>Our Products</h2>
+    <IconButton onClick={() => navigate('/CartPage')} className="go-to-cart-button" color="primary">
+    <div className="cart-icon-wrapper">
+          <ShoppingCartIcon />
+        </div>
+      </IconButton>
     <div className="products-grid">
       {products.map(product => (
         <div className="product-card" key={product.id}>
@@ -86,6 +100,7 @@ const ProductPage: React.FC = () => {
           {alertMessage}
         </Alert>
       </Snackbar>
+      
   </div>
   );
 };

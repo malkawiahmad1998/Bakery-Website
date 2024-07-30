@@ -1,0 +1,12 @@
+/* styles.css */
+
+.MuiButton-containedPrimary {
+    background: linear-gradient(to right, #e1e10e 0%, #d2d23e 100%);
+    color: #000;
+  }
+  
+  .MuiButton-containedPrimary:hover {
+    background: #ffffff;
+    color: #000;
+  }
+  

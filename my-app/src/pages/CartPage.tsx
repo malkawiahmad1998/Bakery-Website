@@ -74,6 +74,7 @@ const Cart: React.FC = () => {
         </div>
       )}
     </div>
+    
   );
 };
 
