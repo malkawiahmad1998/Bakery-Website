@@ -7,7 +7,7 @@ const FooterContainer = styled.footer`
   color: white;
   text-align: center;
   position: fixed;
-  height:40px;
+  height:45px;
   width: 100%;
   bottom: 0;
 
@@ -52,9 +52,9 @@ const Footer: React.FC = () => {
     <FooterContainer>
       <FooterText>&copy; {new Date().getFullYear()} Sunbulah Bakery And Sweets.</FooterText>
       <SocialLinks>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.facebook.com/alsunbulah.food/about" target="_blank" rel="noopener noreferrer">Facebook</a>
         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.instagram.com/sunbulah.food/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </SocialLinks>
     </FooterContainer>
   );

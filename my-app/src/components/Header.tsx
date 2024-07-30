@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import bgImage from './images/مخابز-و-مطاعم-السنبلة.jpeg'
 import logoImage from '../images/Vintage Retro Cake and Bakery Badge Logo.png'
 import '../App.css'
 
 const HeaderContainer = styled.header`
   background: linear-gradient(to right, #ffff00 0%, #ffffcc 100%);
+  height:55px;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -46,12 +46,12 @@ const Nav = styled.nav`
 const Header: React.FC = () => {
   return (
     <HeaderContainer>
-      <img id='logoImage' src={logoImage}></img>
+      <a href='/'><img id='logoImage' src={logoImage}></img></a>
       <Logo style={{marginLeft:'-780px'}}>Sunbulah Bakery And Sweets</Logo>
       <Nav>
         <Link to="/">Home</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/cart">Cart</Link>
+        <Link to="/ProductPage">Products</Link>
+        <Link to="/CartPage">Cart</Link>
         <Link to="/contact">Contact</Link>
       </Nav>
     </HeaderContainer>

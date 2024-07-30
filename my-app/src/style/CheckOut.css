@@ -1,0 +1,146 @@
+/* CheckoutPage.css */
+
+.checkout-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 130px;
+    margin-bottom: 170px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .checkout-items {
+    margin-bottom: 20px;
+  }
+  
+  .checkout-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  .checkout-item-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  .checkout-item-details {
+    flex-grow: 1;
+  }
+  
+  .checkout-item-details h3 {
+    margin: 0;
+    color: #555;
+  }
+  
+  .checkout-item-details p {
+    margin: 5px 0;
+    color: #777;
+  }
+  
+  .checkout-form {
+    margin-top: 20px;
+  }
+  
+  .checkout-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  
+  .payment-method {
+    margin-bottom: 10px;
+  }
+  
+  .payment-method label {
+    display: inline-block;
+    margin-right: 20px;
+    color: #555;
+  }
+  
+  .payment-method input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  .placeorderBtn {
+    display: inline-block;
+    width: 15%;
+    padding: 10px;
+    background: linear-gradient(to right, #e1e10e 0%, #d2d23e 100%);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.placeorderBtn:hover {
+  transition: 0.3s;
+  color: rgb(255, 255, 255);
+}
+
+.back-to-cart-button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+
+  
+  .Snackbar {
+    margin-top: 10px;
+  }
+  
+  .Alert {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .total-label {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+.total-amount {
+    font-size: 24px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.checkoutbtns{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}

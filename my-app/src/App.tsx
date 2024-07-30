@@ -4,26 +4,35 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import { Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-
-
+import ProductPage from './pages/ProductPage';
+import Cart from './pages/CartPage';
+import { CartProvider } from './context/CartContext';
+import Checkout from './pages/CheckOutPage';
 
 const App: React.FC = () => {
   return (
+    <CartProvider>
     <Router>
-      <div >
+      
       <div className='project-container'>
         <Header/>
           <div className='content'>
-            <Link to='/'></Link>
+            
+            
             
           </div>  
         <Footer/>
       </div>
-      </div>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
+        <Route path='/ProductPage' element={<ProductPage/>}/>
+        <Route path='/CartPage' element={<Cart/>}/>
+        <Route path='/CheckOutPage' element={<Checkout/>}/>
+
+
       </Routes>
     </Router>
+    </CartProvider>
   );
 };
 
