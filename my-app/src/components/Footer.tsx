@@ -6,20 +6,17 @@ const FooterContainer = styled.footer`
   padding: 20px 0;
   color: white;
   text-align: center;
-  position: fixed;
-  height:45px;
+  height: 45px;
   width: 100%;
-  bottom: 0;
 
   @media (max-width: 768px) {
     padding: 15px 0;
   }
 
-   @media (max-width: 480px) {
+  @media (max-width: 480px) {
     padding: 10px 0;
     font-size: 0.9rem;
   }
-  
 `;
 
 const FooterText = styled.p`

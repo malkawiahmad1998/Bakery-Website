@@ -17,13 +17,16 @@ const HeaderContainer = styled.header`
     flex-direction: column;
     align-items: flex-start;
   }
+
+  
 `;
 
 const Logo = styled.div`
   font-size: 1.5rem;
   
-  @media (max-width: 768px) {
+ @media (max-width: 768px) {
     margin-bottom: 10px;
+    font-size: 1.2rem;
   }
 `;
 
