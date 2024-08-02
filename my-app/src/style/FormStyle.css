@@ -1,0 +1,25 @@
+/* FormStyles.css */
+.Con{
+  
+}
+
+
+.form-container {
+
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.585);
+  margin-top: 50px;
+}
+
+.submit-button {
+  background: linear-gradient(to right, #e1e10e 0%, #d2d23e 100%);
+  color: black;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background: linear-gradient(to right, #d2d23e 0%, #e1e10e 100%);
+  color: white;
+}

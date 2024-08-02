@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import '../style/ProductsPage.css';
 import { CartContext } from '../context/CartContext';
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import { Button } from '@mui/material';
-
+import { Button, IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import IconButton from '@mui/material/IconButton';
-
-
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -28,7 +23,7 @@ const ProductPage: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  const { addToCart, cart } = cartContext;
+  const { addToCart } = cartContext;
 
   const products = [
     { id: 1, name: 'Chocolate Cake', price: '$10', image: 'https://lh3.googleusercontent.com/hG9dM7fPCObtNOq4h5Ql7jNNFim_5rPpwWVpx8stKIiH4caM4OT2SZR085iP861Feak61mliivlhtWZjeM_FsZZwueWmv1JV7dFoBOUD9BFlUa0E72qs=w523-h349-p' },
@@ -42,6 +37,16 @@ const ProductPage: React.FC = () => {
   ];
 
   const handleAddToCart = (product: { id: number; name: string; price: string; image: string }) => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+    if (!isLoggedIn) {
+      setAlertSeverity('error');
+      setAlertMessage('Please log in to add items to the cart.');
+      setOpen(true);
+      navigate('/LoginPage');
+      return;
+    }
+
     if (quantities[product.id] > 0) {
       addToCart({ ...product, quantity: quantities[product.id] });
       setQuantities(prev => ({ ...prev, [product.id]: 0 }));
@@ -70,38 +75,38 @@ const ProductPage: React.FC = () => {
     }
     setOpen(false);
   };
+
   return (
     <div className="products-page">
-    <h2>Our Products</h2>
-    <IconButton onClick={() => navigate('/CartPage')} className="go-to-cart-button" color="primary">
-    <div className="cart-icon-wrapper">
+      <h2>Our Products</h2>
+      <IconButton onClick={() => navigate('/CartPage')} className="go-to-cart-button" color="primary">
+        <div className="cart-icon-wrapper">
           <ShoppingCartIcon />
         </div>
       </IconButton>
-    <div className="products-grid">
-      {products.map(product => (
-        <div className="product-card" key={product.id}>
-          <img src={product.image} alt={product.name} className="product-image" />
-          <h3 className="product-name">{product.name}</h3>
-          <p className="product-price">{product.price}</p>
-          <div className="conrolBtns">
-            <button id='plusBtn' className='add-to-cart-button' onClick={() => handleQuantityChange(product.id, -1)}>-</button>
-            <span>{getProductQuantity(product.id)}</span>
-            <button id='minusBtn' className='add-to-cart-button' onClick={() => handleQuantityChange(product.id, 1)}>+</button>
+      <div className="products-grid">
+        {products.map(product => (
+          <div className="product-card" key={product.id}>
+            <img src={product.image} alt={product.name} className="product-image" />
+            <h3 className="product-name">{product.name}</h3>
+            <p className="product-price">{product.price}</p>
+            <div className="conrolBtns">
+              <button id='plusBtn' className='add-to-cart-button' onClick={() => handleQuantityChange(product.id, -1)}>-</button>
+              <span>{getProductQuantity(product.id)}</span>
+              <button id='minusBtn' className='add-to-cart-button' onClick={() => handleQuantityChange(product.id, 1)}>+</button>
+            </div>
+            <button onClick={() => handleAddToCart(product)} className="add-to-cart-button">
+              Add to Cart
+            </button>
           </div>
-          <button onClick={() => handleAddToCart(product)} className="add-to-cart-button">
-            Add to Cart
-          </button>
-        </div>
-      ))}
-    </div>
-    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        ))}
+      </div>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={alertSeverity}>
           {alertMessage}
         </Alert>
       </Snackbar>
-      
-  </div>
+    </div>
   );
 };
 

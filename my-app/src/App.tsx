@@ -10,6 +10,7 @@ import Checkout from './pages/CheckOutPage';
 import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import { AuthProvider } from './context/AuthContext';
 
 // Component to conditionally render Header and Footer
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -29,6 +30,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 const App: React.FC = () => {
   return (
+    <AuthProvider>
     <CartProvider>
       <Router>
         <Routes>
@@ -42,6 +44,7 @@ const App: React.FC = () => {
         </Routes>
       </Router>
     </CartProvider>
+    </AuthProvider>
   );
 };
 
