@@ -60,7 +60,7 @@ const Cart: React.FC = () => {
             ))}
           </div>
           <div className="cart-total">
-            <h3>Total: ${calculateTotalPrice()}</h3>
+            <h3 style={{'color':'#34a63a'}}>Total: ${calculateTotalPrice()}</h3>
           </div>
           <div className="cart-buttons">
             <button onClick={clearCart} className="clear-cart-button">Clear Cart</button>
