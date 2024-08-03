@@ -1,15 +1,20 @@
-/* FormStyles.css */
-.Con{
-  
+.background-gradient{
+  background: url('https://www.el-bombon.com/wp-content/uploads/2016/10/home-slide-banner1a.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 
 .form-container {
 
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.585);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.542);
   margin-top: 50px;
 }
 
@@ -21,5 +26,15 @@
 
 .submit-button:hover {
   background: linear-gradient(to right, #d2d23e 0%, #e1e10e 100%);
-  color: white;
+  color: rgb(0, 0, 0);
 }
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  color: #333;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+

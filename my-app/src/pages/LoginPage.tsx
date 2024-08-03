@@ -41,9 +41,11 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="sm" style={{ marginTop: '200px' }}>
+    <div className="background-gradient">
+
+    <Container maxWidth="sm" style={{marginTop:'-50px'}}>
       <Box className="form-container" mt={8}>
-        <Typography variant="h4" align="center" gutterBottom>
+        <Typography className='text' variant="h4" align="center" gutterBottom>
           Login
         </Typography>
         <TextField
@@ -88,6 +90,7 @@ const LoginPage: React.FC = () => {
         </Snackbar>
       </Box>
     </Container>
+    </div>
   );
 };
 
