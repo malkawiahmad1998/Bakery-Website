@@ -2,9 +2,21 @@
     padding: 40px 20px;
     text-align: center;
     margin-top: -30px;
+    animation: fadeIn 2s ease-in-out;
 
   }
+ 
   
+ 
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
   .product-list {
     display: flex;
     justify-content: center;

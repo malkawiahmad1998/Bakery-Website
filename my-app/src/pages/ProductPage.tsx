@@ -79,11 +79,28 @@ const ProductPage: React.FC = () => {
   return (
     <div className="products-page">
       <h2>Our Products</h2>
-      <IconButton onClick={() => navigate('/CartPage')} className="go-to-cart-button" color="primary">
-        <div className="cart-icon-wrapper">
-          <ShoppingCartIcon />
-        </div>
-      </IconButton>
+      <IconButton 
+  onClick={() => navigate('/CartPage')} 
+  sx={{
+    color:'black',
+    backgroundColor:'#d2d23e',
+    position: 'fixed',
+    bottom: 20,
+    right: 20,
+    zIndex: 1000,
+    animation: 'pulse 1s ease-in-out infinite',
+    '&:hover': {
+      color: 'white',
+      backgroundColor:'#d2d23e',
+      transition:'.3s',
+      transform: 'scale(1.6)',
+      boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
+    }
+  }} 
+  color="primary"
+>
+  <ShoppingCartIcon />
+</IconButton>
       <div className="products-grid">
         {products.map(product => (
           <div className="product-card" key={product.id}>
