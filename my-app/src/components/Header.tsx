@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import styled , { keyframes } from 'styled-components';
 import logoImage from '../images/Vintage Retro Cake and Bakery Badge Logo.png';
 import '../App.css';
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const HeaderContainer = styled.header`
   background: linear-gradient(to right, #ffff00 0%, #ffffcc 100%);
@@ -12,12 +22,16 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: ${fadeIn} 1s ease-out;
+  
+
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
   }
 `;
+
 
 const Logo = styled.div`
   font-size: 1.5rem;

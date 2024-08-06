@@ -1,13 +1,30 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
+
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 
 const FooterContainer = styled.footer`
-  background-color: #333;
+  background: linear-gradient(45deg, #6b6b6b, #333);
   padding: 20px 0;
   color: white;
   text-align: center;
-  height: 45px;
   width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+    animation: ${fadeIn} 1s ease-in-out;
+
 
   @media (max-width: 768px) {
     padding: 15px 0;
@@ -15,15 +32,16 @@ const FooterContainer = styled.footer`
 
   @media (max-width: 480px) {
     padding: 10px 0;
-    font-size: 0.9rem;
   }
 `;
 
 const FooterText = styled.p`
   margin: 0;
+  font-size: 1rem;
+  letter-spacing: 1px;
 
   @media (max-width: 480px) {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 `;
 
@@ -34,7 +52,10 @@ const SocialLinks = styled.div`
     margin: 0 10px;
     color: white;
     text-decoration: none;
+    transition: color 0.3s ease-in-out;
+
     &:hover {
+      color: #f0c14b;
       text-decoration: underline;
     }
 
